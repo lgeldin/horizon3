@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<j:jelly xmlns:j="jelly:core" xmlns="h3">
+
+	<screen id="screen" layout="border">
+		<panel region="center" layout="fit">
+			<table id="tbl1" store="ds1">
+				<col header="Column1" dataIndex="col1" />
+				<col header="Column2" dataIndex="col2" />
+			</table>
+		</panel>
+		<panel region="west" width="100">
+			<panel xtype="button" text="click me 3" handler="doButtonClick3" />
+			<panel xtype="button" text="open screen 1" handler="openScreen1" />
+			<panel html="&lt;div id='try1'&gt;try1&lt;/div&gt;" />
+			<panel xtype="button" text="reload" handler="doReload" />
+		</panel>
+	</screen>
+
+	<!--
+		<screen layout="column"> <panel id="filter"> </panel> <panel
+		id="selection"> </panel> <panel id="details"> </panel> </screen>
+	-->
+</j:jelly>
+

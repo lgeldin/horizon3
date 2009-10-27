@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<j:jelly xmlns:j="jelly:core" xmlns="h3">
+	<screen id="mainScreen" layout="border">
+		<panel region="west" width="100" minWidth="100" split="true">
+			<panel xtype="button" text="screen 1" handler="doOpenScreen1" />
+			<panel xtype="button" text="screen 2" handler="doOpenScreen2" />
+			<panel xtype="button" text="reload" handler="doReload" />
+			<panel html="&lt;div id='try1'&gt;try1&lt;/div&gt;" />
+		</panel>
+		<panel region="center" id="details" title="Details pane" layout="fit">
+		</panel>
+	</screen>
+</j:jelly>
+

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<j:jelly xmlns:j="jelly:core" xmlns="h3">
+
+<screen id="screen" layout="border">
+	<panel region="west" width="100" >
+		<panel xtype="button" text="click me 1" handler="doButtonClick1" id="myButton"/>
+		<panel xtype="button" text="click me 2" handler="doButtonClick2" />
+		<panel xtype="button" text="open screen 2" handler="doButtonClick3" />
+		<panel xtype="button" text="remote ^ 2" handler="doRemote" />
+		<panel xtype="button" text="reload" handler="doReload" />
+		<panel xtype="button" text="get curr tab" handler="doGetCurrTab" />
+		<panel html="&lt;div id='try1'&gt;try1&lt;/div&gt;" />
+		<panel xtype="button" text="open main" handler="doOpenMain" />
+	</panel>
+	<tabs region="center" id="myTabs">
+		<panel title="t1" html="123" id="tab1"/>
+		<panel title="t2" html="456" id="tab2"/>
+	</tabs>
+</screen>
+
+<!-- 
+<screen layout="column">
+	<panel id="filter">
+	</panel>
+	<panel id="selection">
+	</panel>
+	<panel id="details">
+	</panel>
+</screen>
+ -->
+</j:jelly>
+

@@ -1,0 +1,23 @@
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr//dwr20.dtd">
+<dwr>
+
+  <!-- init is only needed if you are extending DWR -->
+  <!--<init>
+    <creator id="..." class="..."/>
+    <converter id="..." class="..."/>
+  </init>-->
+
+  <!-- without allow, DWR isn't allowed to do anything -->
+  <!-- <allow> -->
+    <!--<create creator="..." javascript="..."/>
+    <convert converter="..." match="..."/> -->
+	<!-- <convert converter="object" match="java.util.Date"/>
+	<convert converter="object" match="java.lang.String"/>
+  </allow>-->
+
+  <!-- you may need to tell DWR about method signatures -->
+  <!--<signatures>
+    ...
+  </signatures>-->
+
+</dwr>

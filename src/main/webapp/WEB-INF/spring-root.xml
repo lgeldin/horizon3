@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+        >      
+	<bean id="screen1" class="app.screen1.Server">
+		<property name="stateHolder" ref="stateHolder"/>
+	</bean>
+
+	<bean id="screen2" class="app.screen2.Server">
+		<property name="stateHolder" ref="stateHolder"/>
+	</bean>
+
+	<bean id="mainScreen" class="app.mainScreen.Server">
+		<property name="stateHolder" ref="stateHolder"/>
+	</bean>
+
+
+
+	<bean id="tabsStateService" class="h3.services.TabsStateService">
+		<property name="stateHolder" ref="stateHolder"/>
+	</bean>
+	<bean id="dataStoreService" class="h3.services.DataStoreService">
+		<property name="stateHolder" ref="stateHolder"/>
+	</bean>
+
+	<bean id="stateHolder" class="h3.state.StateHolder" scope="session">
+		<aop:scoped-proxy/>
+	</bean>
+	<bean id="guiRetriever" class="h3.GUIRetrievingServlet">
+		<property name="stateHolder" ref="stateHolder"/>
+	</bean>
+
+   <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" >
+        <property name="mappings">
+            <props>
+                <prop key="/retriever">guiRetriever</prop>
+                <prop key="/**/*">dwrController</prop>
+            </props>
+        </property>
+		<!-- <property name="alwaysUseFullPath" value="false"/> -->
+    </bean>
+
+    <bean id="dwrController" class= "h3.DwrWrapper" >
+		<property name="servletClass">
+			<value>org.directwebremoting.servlet.DwrServlet</value>
+		</property>
+		<property name="initParameters">
+			<props>
+				<prop key="debug">true</prop>
+				<prop key="classes">
+					app.screen1.Server,
+					app.screen2.Server,
+					app.mainScreen.Server,
+					h3.services.TabsStateService,
+					h3.services.DataStoreService
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+<!--  
+ 	<bean id="dwrConfig" class="org.directwebremoting.impl.DwrXmlConfigurator">
+ 	</bean>
+
+    <bean id="dwrController" class="org.directwebremoting.spring.DwrController"  >
+    	<property name="debug" value="true"/>
+  		<property name="configParams">
+			<props>
+				<prop key="debug">true</prop>
+				<prop key="classes">app.screen1.Server</prop>
+			</props>
+		</property>
+		<property name="configurators">
+			<set>
+			</set>
+		</property>
+    </bean>
+    -->
+    
+    
+    
+    
+<!-- 
+	<bean id="props" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+		<property name="location" value="classpath:web.properties"/>
+	</bean>
+	<import resource="classpath:org/graphely/entities/beans.xml" />
+	<import resource="classpath:org/graphely/dto/beans.xml" />
+
+    <bean id="dwrController" class= "org.graphely.web.DwrWrapper" >
+		<property name="servletClass">
+			<value>org.directwebremoting.servlet.DwrServlet</value>
+		</property>
+		<property name="initParameters">
+			<props>
+				<prop key="debug">true</prop>
+				<prop key="classes">
+				org.graphely.dto.EventsDTOProvider,
+				org.graphely.dto.PersonListDTOProvider,
+				org.graphely.dto.InfoDTOProvider,
+				org.graphely.dto.events.PersonEventsDTO,
+				org.graphely.dto.events.EventDTO,
+				org.graphely.dto.events.PersonsDTO,
+				org.graphely.dto.info.PersonInfoDTO,
+				org.graphely.dto.info.AncestorsDTO,
+				org.graphely.dto.info.SpousesDTO,
+				org.graphely.dto.info.DescendantsDTO,
+				org.graphely.dto.info.GraphDTO,
+				org.graphely.dto.UpdateType,
+				org.graphely.entities.GenderType			
+				</prop>
+			</props>
+		</property>
+	</bean>
+	
+	 -->
+</beans>

@@ -3,6 +3,7 @@
 
 	<dataStores>
 		<javaStore id="ds1" method="getDataForDS1"/>
+		<blStore id="ds2" itemClass="bl.Person"/>
 		
 		<!--
 		<projectedCroteriaStore ...

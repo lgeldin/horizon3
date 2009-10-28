@@ -13,7 +13,8 @@ public class H3TagLib extends TagLibrary{
 		
 		registerTag("dataStores", SimpleGUITag.class);
 		registerTag("javaStore", JavaStoreTag.class);
-		
+		registerTag("blStore", BLServiceStoreTag.class);
+	
 		
 	}
 }

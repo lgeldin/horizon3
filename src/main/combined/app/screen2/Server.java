@@ -12,11 +12,13 @@ import org.directwebremoting.annotations.RemoteMethod;
 import org.directwebremoting.annotations.RemoteProxy;
 import org.directwebremoting.spring.SpringCreator;
 
+import bl.BLService;
+
 @RemoteProxy(name = "screen2", 
 		creator = SpringCreator.class, 
 		creatorParams = @Param(name = "beanName", value = "screen2"))
 public class Server extends BaseServer<State>{
-
+	private BLService blService;
 	@RemoteMethod
 	public void callme() {
 
@@ -38,4 +40,9 @@ public class Server extends BaseServer<State>{
 
 		return data;
 	}
+
+	public void setBlService(BLService blService) {
+		this.blService = blService;
+	}
+	
 }

@@ -15,6 +15,14 @@
 	<tabs region="center" id="myTabs">
 		<panel title="t1" html="123" id="tab1"/>
 		<panel title="t2" html="456" id="tab2"/>
+		<panel title="grid" layout="fit">
+			
+			<table id="tbl2" store="ds2" editable="true">
+				<col header="Column1" dataIndex="name" />
+				<col header="Column2" dataIndex="lastName" />
+			</table>
+			
+		</panel>
 	</tabs>
 </screen>
 

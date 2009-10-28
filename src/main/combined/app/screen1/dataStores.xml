@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<j:jelly xmlns:j="jelly:core" xmlns="h3">
+
+	<dataStores>
+	<!--	<javaStore id="ds1" method="getDataForDS1"/> -->
+		<blStore id="ds2" itemClass="bl.Person"/>
+		
+		<!--
+		<projectedCroteriaStore ...
+		<viewStore ...
+		<viewCacheStore ...
+		-->
+	</dataStores>
+</j:jelly>
+

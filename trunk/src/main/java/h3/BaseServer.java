@@ -1,8 +1,5 @@
 package h3;
 
-import java.util.Map;
-
-import h3.state.BaseState;
 import h3.state.StateHolder;
 
 import org.directwebremoting.annotations.RemoteProxy;

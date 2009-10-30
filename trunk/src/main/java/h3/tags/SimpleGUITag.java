@@ -1,16 +1,10 @@
 package h3.tags;
 
-import h3.state.TabsState;
-
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.jsp.JspException;
-
-import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.jelly.DynaTag;
 import org.apache.commons.jelly.JellyTagException;
 import org.apache.commons.jelly.MissingAttributeException;

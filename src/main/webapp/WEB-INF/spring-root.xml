@@ -11,6 +11,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 	</bean>
 
 	<bean id="screen2" class="app.screen2.Server">
+		<property name="blService" ref="blService"/>
 		<property name="stateHolder" ref="stateHolder"/>
 	</bean>
 
@@ -19,12 +20,15 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 	</bean>
 
 
+	<bean id="blService" class="bl.MockBLService"/>
+
 
 	<bean id="tabsStateService" class="h3.services.TabsStateService">
 		<property name="stateHolder" ref="stateHolder"/>
 	</bean>
 	<bean id="dataStoreService" class="h3.services.DataStoreService">
 		<property name="stateHolder" ref="stateHolder"/>
+		<property name="blService" ref="blService"/>
 	</bean>
 
 	<bean id="stateHolder" class="h3.state.StateHolder" scope="session">

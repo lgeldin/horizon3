@@ -1,8 +1,5 @@
 package h3.state;
 
-import java.lang.reflect.InvocationTargetException;
-
-import h3.BaseServer;
 
 public class JavaMethodStoreState extends DataStoreState{
 	private String methodName;

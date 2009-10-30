@@ -2,8 +2,6 @@ package h3.tags;
 
 import h3.state.BLServiceStoreState;
 import h3.state.BaseState;
-import h3.state.JavaMethodStoreState;
-import h3.state.TabsState;
 
 import org.apache.commons.jelly.JellyTagException;
 import org.apache.commons.jelly.MissingAttributeException;

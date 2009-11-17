@@ -65,7 +65,7 @@ public class GUIRetrievingServlet extends AbstractController{//extends HttpServl
 		};//new FakeHttpServletRequest();//
 		HttpServletResponse resp2 = new HttpServletResponseWrapper(resp);
 		req.getRequestDispatcher("/dwr/interface/" + screen + ".js").include(req2, resp2);
-		writer.write("\n"+screen+"._path = '/H3/dwr';\n");
+		writer.write("\n"+screen+"._path = '"+ req.getContextPath() +"/dwr';\n");
 	}
 
 	private void renderClientJS(String screen, PrintWriter writer)

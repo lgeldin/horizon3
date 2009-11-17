@@ -106,7 +106,7 @@ loadStyles = function(rules){
 loadScreen = function(scr, container){
     if (!container) 
         container = Ext.ComponentMgr.get("viewPort");
-    Infra.util.JSLoader.load('/H3/retriever?screen=' + scr, function(result){
+    Infra.util.JSLoader.load('./retriever?screen=' + scr, function(result){
         window.lastResult = result;
         with (container) {
             removeAll();

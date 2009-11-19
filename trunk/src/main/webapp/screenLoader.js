@@ -16,9 +16,15 @@ loadStore = function(item, client, screenName){
         fields: fields,
 		id:item.store
     });
-    DataStoreService.getData(screenName, item.store, function(data){
-        store.loadData(data);
-    });
+	
+	var storeId = item.store;
+	store.reload = function(){
+		DataStoreService.getData(screenName, storeId, function(data){
+			store.loadData(data);
+		});
+	}
+	
+	store.reload();
     return store;
     
     
@@ -66,6 +72,10 @@ preRenderItem = function(item, client, screenName){
         }
     }
     
+    if (item.xtype == "filter") {
+		item.screenName = screenName;
+	}
+	
     if (item.items) {
         for (var i = 0; i < item.items.length; i++) {
             preRenderItem(item.items[i], client, screenName);

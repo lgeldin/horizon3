@@ -30,6 +30,9 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 		<property name="stateHolder" ref="stateHolder"/>
 		<property name="blService" ref="blService"/>
 	</bean>
+	<bean id="filterService" class="h3.services.FilterService">
+		<property name="stateHolder" ref="stateHolder"/>
+	</bean>
 
 	<bean id="stateHolder" class="h3.state.StateHolder" scope="session">
 		<aop:scoped-proxy/>
@@ -60,7 +63,8 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 					app.screen2.Server,
 					app.mainScreen.Server,
 					h3.services.TabsStateService,
-					h3.services.DataStoreService
+					h3.services.DataStoreService,
+					h3.services.FilterService
 				</prop>
 			</props>
 		</property>

@@ -10,6 +10,7 @@
 	<link href="./ext-js/resources/css/ext-all.css" rel="stylesheet" />
 	<script src="./ext-js/adapter/ext/ext-base.js"></script>
 	<script src="./ext-js/ext-all.js"></script>
+	<script src="./components.js"></script>
 	<script src="./infra/JSLoader.js"></script>
 	<script src="./infra/CSSLoader.js"></script>
 
@@ -18,6 +19,7 @@
 
   <script type='text/javascript' src='/H3/dwr/interface/TabsStateService.js'></script>
   <script type='text/javascript' src='/H3/dwr/interface/DataStoreService.js'></script>
+  <script type='text/javascript' src='./dwr/interface/FilterService.js'></script>
 
 <!--
   <script type='text/javascript' src='/H3/dwr/interface/screen1.js'></script>

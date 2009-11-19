@@ -12,6 +12,8 @@ public class MockBLService implements BLService{
 		List<Person> persons = new ArrayList<Person>();
 		persons.add(new Person("AAA","BBB",new Date(),160));
 		persons.add(new Person("CCC","DDD",new Date(),180));
+		persons.add(new Person("Hello","World",new Date(),180));
+		persons.add(new Person("Very","Nice",new Date(),180));
 		data.put(Person.class, persons);
 		// TODO Auto-generated constructor stub
 	}

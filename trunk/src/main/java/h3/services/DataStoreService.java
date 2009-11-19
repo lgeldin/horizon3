@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.directwebremoting.annotations.Param;
@@ -88,8 +89,9 @@ public class DataStoreService implements BeanFactoryAware {
 				.invoke();
 		List<Map> result = new ArrayList<Map>();
 		for (Object o : col) {
+			Map row = null;
 			try {
-				result.add(BeanUtils.describe(o));
+				row = BeanUtils.describe(o);
 			} catch (IllegalAccessException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -99,6 +101,27 @@ public class DataStoreService implements BeanFactoryAware {
 			} catch (NoSuchMethodException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}
+
+			if (row != null) {
+				boolean matches = true;
+				if (state.getFilterState() != null) {
+					for (Map.Entry<String,Object> entry:((Map<String,Object>)row).entrySet()) {
+						
+						
+						String fltr = state.getFilterState().getFieldState(entry.getKey());
+						if (fltr!=null) {
+							if (entry.getValue()==null)
+								matches = false;
+							else 
+								matches = String.valueOf(entry.getValue()).toLowerCase().contains(fltr.toLowerCase());
+						}
+					}
+				} 
+				
+				if (matches)
+					result.add(row);
+				
 			}
 		}
 		return result;

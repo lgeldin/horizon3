@@ -17,7 +17,12 @@ public class TabsGUITag extends SimpleGUITag {
 		getAttrs().put("xtype", "tabpanel");
 		BaseState state = (BaseState) this.getContext().getVariable("screenState");
 		if (getAttrs().containsKey("id")) {
-			state.setWidgetState((String) getAttrs().get("id"), new TabsState());
+			String tabsId = (String) getAttrs().get("id");
+			TabsState tabsState = (TabsState) state.getWidgetState(tabsId);
+			if (tabsState!=null && tabsState.getCurrTab()!=null) {
+				getAttrs().put("activeTab" , tabsState.getCurrTab());
+			}
+			state.setWidgetState(tabsId, new TabsState());
 		}
 	}
 

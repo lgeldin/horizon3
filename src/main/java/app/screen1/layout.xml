@@ -2,7 +2,11 @@
 <j:jelly xmlns:j="jelly:core" xmlns="h3">
 
 <screen id="screen" layout="border">
-	<panel region="west" width="100" >
+	<panel region="west" width="200" >
+		<filter id="fltr1" store="ds2">
+			<filterField id="name"/>
+			<filterField id="lastName"/>
+		</filter>
 		<panel xtype="button" text="click me 1" handler="doButtonClick1" id="myButton"/>
 		<panel xtype="button" text="click me 2" handler="doButtonClick2" />
 		<panel xtype="button" text="open screen 2" handler="doButtonClick3" />
@@ -15,11 +19,11 @@
 	<tabs region="center" id="myTabs">
 		<panel title="t1" html="123" id="tab1"/>
 		<panel title="t2" html="456" id="tab2"/>
-		<panel title="grid" layout="fit">
+		<panel title="grid" layout="fit" id="tblTab">
 			
 			<table id="tbl2" store="ds2" editable="true">
-				<col header="Column1" dataIndex="name" />
-				<col header="Column2" dataIndex="lastName" />
+				<col header="Name" dataIndex="name" />
+				<col header="Last Name" dataIndex="lastName" />
 			</table>
 			
 		</panel>

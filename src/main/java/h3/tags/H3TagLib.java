@@ -15,6 +15,8 @@ public class H3TagLib extends TagLibrary{
 		registerTag("javaStore", JavaStoreTag.class);
 		registerTag("blStore", BLServiceStoreTag.class);
 	
+		registerTag("filter", FilterTag.class);
+		registerTag("filterField", FilterFieldTag.class);
 		
 	}
 }

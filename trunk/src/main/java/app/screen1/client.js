@@ -50,5 +50,8 @@
 	},
 	doGetCurrTab : function() {
 		this.remote.currTab(function(t) {alert(t)});
+	},
+	doReport : function() {
+		window.open("report?screen=screen1")
 	}
 })

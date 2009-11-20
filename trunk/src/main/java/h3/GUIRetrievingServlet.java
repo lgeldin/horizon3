@@ -1,7 +1,8 @@
 package h3;
 
+import h3.services.DataStoreService;
 import h3.state.StateHolder;
-import h3.tags.H3TagLib;
+import h3.tags.web.TagLib;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -93,8 +94,9 @@ public class GUIRetrievingServlet extends AbstractController{//extends HttpServl
         context.setVariable("v", m);
         context.setVariable("items", v);
         context.setVariable("screenState", state);
+        
         //context.setVariable("y", new TryMe());
-        context.registerTagLibrary("h3", H3TagLib.class.getName());
+        context.registerTagLibrary("h3", TagLib.class.getName());
 	    XMLOutput xmlOutput = XMLOutput.createDummyXMLOutput();
 	    //System.out.println(Class.class.getResourceAsStream("a.xml"));
 	    try {

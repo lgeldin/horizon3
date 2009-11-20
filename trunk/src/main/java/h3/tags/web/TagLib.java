@@ -1,10 +1,10 @@
-package h3.tags;
+package h3.tags.web;
 
 
 import org.apache.commons.jelly.TagLibrary;
 
-public class H3TagLib extends TagLibrary{
-	public H3TagLib() {
+public class TagLib extends TagLibrary{
+	public TagLib() {
 		registerTag("screen", SimpleGUITag.class);
 		registerTag("panel", SimpleGUITag.class);
 		registerTag("tabs", TabsGUITag.class);

@@ -134,7 +134,10 @@ loadScreen = function(scr, container){
     })
 }
 
-includeScreen = function(scr,container) {
+includeScreen = function(scr,containerAnchor) {
+	var anchor = Ext.get(containerAnchor);
+	var container = anchor.dom.parentNode;
+	anchor.remove();
 	var panel = new Ext.Panel({
 		applyTo:container,
 		layout:"fit"

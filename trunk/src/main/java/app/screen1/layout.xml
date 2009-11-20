@@ -15,6 +15,7 @@
 		<panel xtype="button" text="get curr tab" handler="doGetCurrTab" />
 		<panel html="&lt;div id='try1'&gt;try1&lt;/div&gt;" />
 		<panel xtype="button" text="open main" handler="doOpenMain" />
+		<panel xtype="button" text="report" handler="doReport" />
 	</panel>
 	<tabs region="center" id="myTabs">
 		<panel title="t1" html="123" id="tab1"/>

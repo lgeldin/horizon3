@@ -1,14 +1,14 @@
-package h3.tags;
+package h3.tags.web;
 
 import org.apache.commons.jelly.JellyTagException;
 import org.apache.commons.jelly.MissingAttributeException;
 import org.apache.commons.jelly.XMLOutput;
 
-public class TableColumnTag extends SimpleGUITag {
+public class FilterFieldTag extends SimpleGUITag {
 	@Override
 	public void doTag(XMLOutput arg0) throws MissingAttributeException,
 			JellyTagException {
-		TableTag t = (TableTag)this.getParent();
-		t.addColumn(this.getAttrs());
+		FilterTag t = (FilterTag)this.getParent();
+		t.addField((String) this.getAttrs().get("id"));
 	}
 }

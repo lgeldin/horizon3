@@ -1,4 +1,4 @@
-package h3.tags;
+package h3.tags.web;
 
 import h3.state.BaseState;
 import h3.state.TabsState;

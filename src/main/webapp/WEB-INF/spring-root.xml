@@ -40,11 +40,16 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 	<bean id="guiRetriever" class="h3.GUIRetrievingServlet">
 		<property name="stateHolder" ref="stateHolder"/>
 	</bean>
+	<bean id="pdfCreator" class="h3.PdfCreator">
+		<property name="stateHolder" ref="stateHolder"/>
+		<property name="storeService" ref="dataStoreService"/>
+	</bean>
 
    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" >
         <property name="mappings">
             <props>
                 <prop key="/retriever">guiRetriever</prop>
+                <prop key="/report">pdfCreator</prop>
                 <prop key="/**/*">dwrController</prop>
             </props>
         </property>
@@ -70,60 +75,4 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 		</property>
 	</bean>
 
-<!--  
- 	<bean id="dwrConfig" class="org.directwebremoting.impl.DwrXmlConfigurator">
- 	</bean>
-
-    <bean id="dwrController" class="org.directwebremoting.spring.DwrController"  >
-    	<property name="debug" value="true"/>
-  		<property name="configParams">
-			<props>
-				<prop key="debug">true</prop>
-				<prop key="classes">app.screen1.Server</prop>
-			</props>
-		</property>
-		<property name="configurators">
-			<set>
-			</set>
-		</property>
-    </bean>
-    -->
-    
-    
-    
-    
-<!-- 
-	<bean id="props" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
-		<property name="location" value="classpath:web.properties"/>
-	</bean>
-	<import resource="classpath:org/graphely/entities/beans.xml" />
-	<import resource="classpath:org/graphely/dto/beans.xml" />
-
-    <bean id="dwrController" class= "org.graphely.web.DwrWrapper" >
-		<property name="servletClass">
-			<value>org.directwebremoting.servlet.DwrServlet</value>
-		</property>
-		<property name="initParameters">
-			<props>
-				<prop key="debug">true</prop>
-				<prop key="classes">
-				org.graphely.dto.EventsDTOProvider,
-				org.graphely.dto.PersonListDTOProvider,
-				org.graphely.dto.InfoDTOProvider,
-				org.graphely.dto.events.PersonEventsDTO,
-				org.graphely.dto.events.EventDTO,
-				org.graphely.dto.events.PersonsDTO,
-				org.graphely.dto.info.PersonInfoDTO,
-				org.graphely.dto.info.AncestorsDTO,
-				org.graphely.dto.info.SpousesDTO,
-				org.graphely.dto.info.DescendantsDTO,
-				org.graphely.dto.info.GraphDTO,
-				org.graphely.dto.UpdateType,
-				org.graphely.entities.GenderType			
-				</prop>
-			</props>
-		</property>
-	</bean>
-	
-	 -->
 </beans>

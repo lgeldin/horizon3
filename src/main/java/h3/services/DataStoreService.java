@@ -106,22 +106,26 @@ public class DataStoreService implements BeanFactoryAware {
 			if (row != null) {
 				boolean matches = true;
 				if (state.getFilterState() != null) {
-					for (Map.Entry<String,Object> entry:((Map<String,Object>)row).entrySet()) {
-						
-						
-						String fltr = state.getFilterState().getFieldState(entry.getKey());
-						if (fltr!=null) {
-							if (entry.getValue()==null)
-								matches = false;
-							else 
-								matches = String.valueOf(entry.getValue()).toLowerCase().contains(fltr.toLowerCase());
+					for (Map.Entry<String, Object> entry : ((Map<String, Object>) row)
+							.entrySet()) {
+						if (matches) {
+							String fltr = state.getFilterState().getFieldState(
+									entry.getKey());
+							if (fltr != null) {
+								if (entry.getValue() == null)
+									matches = false;
+								else
+									matches = String.valueOf(entry.getValue())
+											.toLowerCase().contains(
+													fltr.toLowerCase());
+							}
 						}
 					}
-				} 
-				
+				}
+
 				if (matches)
 					result.add(row);
-				
+
 			}
 		}
 		return result;

@@ -1,4 +1,4 @@
-package h3.tags;
+package h3.tags.web;
 
 import java.util.ArrayList;
 import java.util.Collection;

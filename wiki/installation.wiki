@@ -1,4 +1,4 @@
-=Project installation instructions=
+#summary Project installation instructions
 
 ===Before build===
   *  Download https://dwr.dev.java.net/files/documents/2427/75349/dwr.jar
